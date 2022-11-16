@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+void swap(int *i,int *j)
+{
+    int temp;
+    temp=*i;
+    *i=*j;
+    *j=temp;
+}
+void selectionsort(int a[],int n)
+{
+    int i,j,minin;
+    for(i=0;i<n;i++){
+        minin=i;
+        for(j=i+1;j<n;j++){
+            if(a[minin]>a[j])
+            {
+                minin=j;
+            }
+        
+        }
+        if(minin!=i)
+        {
+            swap(&a[i],&a[minin]);
+        }
+    }
+}
+
+int main()
+{
+    int a[]={3,98,64,100,2,1,3};
+    int n=sizeof(a)/sizeof(a[0]);
+    selectionsort(a,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    return 0;
+}
+
+output:
+1 2 3 3 64 98 100
